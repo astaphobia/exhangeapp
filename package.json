@@ -8,7 +8,14 @@
   "scripts": {
     "build:dev": "webpack --config ./configs/webpack.config.js --mode development",
     "build:prod": "webpack --config ./configs/webpack.config.js --mode production",
-    "start": "webpack --config ./configs/webpack.config.js --mode development & webpack-dev-server --mode development --open --config ./configs/webpack.config.js"
+    "start": "webpack --config ./configs/webpack.config.js --mode development & webpack-dev-server --mode development --open --config ./configs/webpack.config.js",
+    "prettier": "prettier --config .prettierrc --write \"./src/**.*js\"",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    ".js": [
+      "yarn prettier", "git add"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -20,12 +27,13 @@
     "webpack": "^4.17.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.7"
-
   },
   "dependencies": {
     "html-webpack-plugin": "^3.2.0",
+    "lint-staged": "^7.2.2",
+    "pre-commit": "^1.2.2",
+    "prop-types": "^15.6.2",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "prop-types": "^15.6.2"
+    "react-dom": "^16.4.2"
   }
 }
