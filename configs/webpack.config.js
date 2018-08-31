@@ -1,6 +1,7 @@
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     entry: './src/index.js',
@@ -11,7 +12,10 @@ module.exports = {
     },
     devtool: "source-map",
     resolve: {
-        extensions: ['.js', '.json', '.jsx', '.css']
+        extensions: ['.js', '.json', '.jsx', '.css'],
+        alias: {
+            '@': process.cwd() + '/src'
+        }
     },
     module: {
         rules: [
@@ -33,6 +37,15 @@ module.exports = {
                 use: {
                     loader: "file-loader?name=img/[path][name].[ext]&context=./src"
                 }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    "css-loader"
+                ]
             }
         ],
     },
@@ -41,7 +54,8 @@ module.exports = {
             template: './src/index.html',
             filename: './index.html'
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new MiniCssExtractPlugin()
     ],
     devServer: {
         contentBase: path.join(__dirname, 'public'),

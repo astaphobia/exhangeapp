@@ -1,10 +1,17 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import "./favicon.ico"
 
-class App extends React.Component {
+import "@/styles/index.css"
+import "@/favicon.ico"
+import App from "./App"
+
+class Root extends React.Component {
   render() {
-    return <div>Holla</div>
+    return (
+      <React.Fragment>
+        <App />
+      </React.Fragment>
+    )
   }
 }
-ReactDOM.render(<App />, document.getElementById("root"))
+ReactDOM.render(<Root />, document.getElementById("root"))
