@@ -1,0 +1,13 @@
+version: '3.5'
+services:
+  exhangeapp:
+    container_name: exhangeapp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/code/exhangeapp:rw
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
