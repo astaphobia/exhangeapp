@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table should render perfectly 1`] = `
+<table
+  className="table table-hover table-striped table-bordered"
+  style={
+    Object {
+      "tableLayout": "fixed",
+    }
+  }
+>
+  <thead
+    className="thead-dark"
+  >
+    <tr>
+      <Header
+        row="one"
+      >
+        Mock
+      </Header>
+      <Header
+        row="one"
+      >
+        Up
+      </Header>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      key=".$0"
+    >
+      <td
+        key="0/.0"
+      >
+        one
+      </td>
+      <td
+        key="1/.1"
+      >
+        one
+      </td>
+    </tr>
+    <tr
+      key=".$1"
+    >
+      <td
+        key="0/.0"
+      >
+        two
+      </td>
+      <td
+        key="1/.1"
+      >
+        two
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

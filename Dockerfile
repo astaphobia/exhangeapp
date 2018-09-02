@@ -7,6 +7,5 @@ COPY . /usr/code/exhangeapp
 
 RUN yarn install
 RUN yarn build
-# CMD [ "yarn", "start:docker" ]
 CMD [ "node", "server.js"]
 EXPOSE 3000

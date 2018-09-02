@@ -181,7 +181,7 @@ class App extends React.Component {
                     <Table.Header row={key}>Rate</Table.Header>
                     <Table.Header
                       row={{ value: calculation.rates[key] }}
-                      renderColumn={row => `${row.value}`}
+                      renderColumn={row => row.value}
                     >
                       Currency
                     </Table.Header>

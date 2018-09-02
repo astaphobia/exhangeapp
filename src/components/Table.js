@@ -1,11 +1,18 @@
 import React from "react"
 import PropTypes from "prop-types"
+import get from "lodash/get"
+import first from "lodash/first"
 
-const Header = ({ children, width }) => <th width={width}>{children}</th>
+const Header = ({ children, width }) => (
+  <th width={get(width, "")}>{children}</th>
+)
 
 class Table extends React.Component {
   static propTypes = {
     children: PropTypes.array,
+  }
+  static defaultProps = {
+    children: [],
   }
   static Header = Header
   render() {
@@ -15,20 +22,20 @@ class Table extends React.Component {
         style={{ tableLayout: "fixed" }}
       >
         <thead className="thead-dark">
-          <tr>{this.props.children[0]}</tr>
+          <tr>{first(this.props.children)}</tr>
         </thead>
         <tbody>
           {React.Children.map(this.props.children, (child, index) => (
             <tr key={index}>
               {React.Children.map(child.props.children, (child, index) => {
-                if (!!child.props.renderColumn) {
+                if (get(child.props, "renderColumn", false)) {
                   return (
                     <td key={index}>
-                      {child.props.renderColumn(child.props.row)}
+                      {child.props.renderColumn(get(child.props, "row", "-"))}
                     </td>
                   )
                 }
-                return <td key={index}>{child.props.row}</td>
+                return <td key={index}>{get(child.props, "row", "-")}</td>
               })}
             </tr>
           ))}
