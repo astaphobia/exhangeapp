@@ -1,7 +1,7 @@
 #exhangeapp
 
 # Description
-  This project based Reactjs for currency comparison with api consume https://exchangeratesapi.io/ and http://openexchangerates.github.io/money.js/
+  This project based Reactjs for currency comparison with api consume https://exchangeratesapi.io/ and http://openexchangerates.github.io/money.js for simple comparison currency, USD as based currency
   
   Docker Node for development
   
